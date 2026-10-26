@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Complaints</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== Top bar and menu ===== -->
+<header>
+<div class="top-bar">
+<strong class="logo">Bizedge</strong>
+<div class="top-icons"><span>🏠</span><span>▦</span><span>ⓘ</span><span>🔔</span><span class="avatar">W</span></div>
+</div>
+<nav class="menu">
+<button class="menu-item" data-page="home">Home</button>
+<button class="menu-item" data-page="other">People</button>
+<button class="menu-item" data-page="timeoff">Timeoff</button>
+<button class="menu-item" data-page="other">Benefits</button>
+<button class="menu-item" data-page="other">Documents</button>
+<button class="menu-item" data-page="other">Payslips</button>
+<button class="menu-item" data-page="other">Performance review</button>
+<button class="menu-item active" data-page="complaints">Complaints</button>
+<button class="menu-item" data-page="other">Assets</button>
+<button class="menu-item" data-page="other">Tasks</button>
+</nav>
+</header>
+
+<main>
+
+<!-- ===== HOME page ===== -->
+<section id="homePage" hidden>
+
+<!-- Greeting and Quick actions -->
+<div class="page-header">
+<div>
+<small class="muted" id="greeting">Good morning</small>
+<h1>Williams Oluwadamilare</h1>
+</div>
+<div class="dropdown-wrap">
+<button id="quickButton" class="btn blue">Quick actions ▾</button>
+<div id="quickMenu" class="dropdown" hidden>
+<button data-quick="missed">Report missed days</button>
+<button data-quick="expense">Expense request</button>
+<button data-quick="complaint">File a complaint</button>
+</div>
+</div>
+</div>
+
+<div class="home-grid">
+
+<!-- LEFT COLUMN -->
+<div class="home-main">
+
+<div class="row-two">
+<!-- Clock in card -->
+<div class="box center">
+<small class="muted">Daily attendance</small>
+<p class="strong" id="todayDate"></p>
+<div class="pill-toggle">
+<button class="active" data-where="Remote">Remote</button>
+<button data-where="On-site">On-site</button>
+</div>
+<div class="clock-box">
+<small class="muted">Good morning</small>
+<p class="clock" id="clockTime">00:00</p>
+<button id="checkButton" class="btn blue full">Check in</button>
+<small>Status: <strong id="checkStatus">Absent</strong></small>
+</div>
+</div>
+
+<!-- Activity -->
+<div class="box">
+<h3>Activity <span class="red-dot"></span></h3>
+<ul class="plain-list">
+<li>Chidinma Eze requested for 3 days off <button class="mini-link">View</button></li>
+<li>Babatunde Ojo requested for 2 days off <button class="mini-link">View</button></li>
+<li>Hauwa Danjuma requested for 10 days annual leave <button class="mini-link">View</button></li>
+<li>Your October payslip is ready <button class="mini-link">View</button></li>
+<li>Set up performance goals for Q4 <button class="mini-link">Go</button></li>
+</ul>
+</div>
+</div>
+
+<!-- Timeoff -->
+<div class="box">
+<div class="box-head">
+<h3>Timeoff</h3>
+<div class="dropdown-wrap">
+<button id="timeoffButton" class="btn blue small-btn">Request time off ▾</button>
+<div id="timeoffMenu" class="dropdown" hidden>
+<button data-timeoff="Maternity timeoff">Maternity timeoff</button>
+<button data-timeoff="Paternity timeoff">Paternity timeoff</button>
+<button data-timeoff="Study timeoff">Study timeoff</button>
+</div>
+</div>
+</div>
+<div class="cards">
+<div class="card center"><strong>Annual timeoff</strong><span class="big">20</span><small class="muted">days left</small><button class="soft-btn" data-timeoff="Annual timeoff">Request timeoff</button><button class="plain-btn">View policy details</button></div>
+<div class="card center"><strong>Sick timeoff</strong><span class="big">9</span><small class="muted">days left</small><button class="soft-btn" data-timeoff="Sick timeoff">Request timeoff</button><button class="plain-btn">View policy details</button></div>
+<div class="card center"><strong>Casual timeoff</strong><span class="big">10</span><small class="muted">days left</small><button class="soft-btn" data-timeoff="Casual timeoff">Request timeoff</button><button class="plain-btn">View policy details</button></div>
+</div>
+</div>
+
+<!-- Benefits -->
+<div class="box">
+<h3>Benefits</h3>
+<div class="cards">
+<div class="card"><strong>Family Healthcare Plan</strong><small class="muted">Leadway Assurance · 2 dependants</small><button class="plain-btn">Tier Website</button><button class="plain-btn">View</button></div>
+<div class="card"><strong>Leadway Pension</strong><small class="muted">Leadway Assurance · 1 dependant</small><button class="plain-btn">Tier Website</button><button class="plain-btn">View</button></div>
+</div>
+</div>
+</div>
+
+<!-- RIGHT COLUMN -->
+<div class="home-side">
+
+<div class="box">
+<h3>Celebration</h3>
+<span class="pill-label">Birthdays</span>
+<p class="muted small">Today</p>
+<div class="person-row"><span class="dot"></span><span><strong>Ngozi Eze</strong><small>Lead Designer</small></span><small>26 Oct</small></div>
+<div class="person-row"><span class="dot"></span><span><strong>Segun Adebayo</strong><small>Accountant</small></span><small>26 Oct</small></div>
+<p class="muted small">Upcoming birthdays</p>
+</div>
+
+<div class="box">
+<div class="box-head"><h3>Timeoff record</h3><button class="mini-link">View all record</button></div>
+<div class="mini-tabs" id="recordTabs">
+<button class="active" data-show="recordUpcoming">Upcoming</button>
+<button data-show="recordPending">Pending</button>
+</div>
+<div id="recordUpcoming">
+<div class="person-row yellow"><span class="dot"></span><span><strong>Ngozi Eze</strong><small>Annual leave · 03 Nov – 07 Nov</small></span><span class="tag">Upcoming</span></div>
+<div class="person-row yellow"><span class="dot"></span><span><strong>Segun Adebayo</strong><small>Sick leave · 12 Nov – 13 Nov</small></span><span class="tag">Upcoming</span></div>
+</div>
+<div id="recordPending" hidden>
+<div class="person-row yellow"><span class="dot"></span><span><strong>Amina Yusuf</strong><small>Casual leave · 20 Nov – 21 Nov</small></span><span class="tag">Pending</span></div>
+</div>
+</div>
+
+<div class="box">
+<h3>My teams</h3>
+<div class="person-row"><span class="dot"></span><span><strong>Chidinma Eze</strong><small>Founder</small></span><button class="tag">Contact</button></div>
+<div class="person-row"><span class="dot"></span><span><strong>Babatunde Ojo</strong><small>Engineer</small></span><button class="tag">Contact</button></div>
+<div class="person-row"><span class="dot"></span><span><strong>Hauwa Danjuma</strong><small>Designer</small></span><button class="tag">Contact</button></div>
+<div class="person-row"><span class="dot"></span><span><strong>Ifeanyi Okeke</strong><small>Analyst</small></span><button class="tag">Contact</button></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== Other pages (People, Timeoff, Benefits...). script.js fills this in ===== -->
+<section id="otherPage" hidden></section>
+
+<!-- ===== PAGE 1: list of complaints ===== -->
+<section id="listPage">
+<div class="page-header">
+<h1>Complaints</h1>
+<button id="fileButton" class="btn primary">File a complaint</button>
+</div>
+
+<div class="toggle">
+<button id="reportedTab" class="active">Reported by you</button>
+<button id="againstTab">Against you</button>
+</div>
+
+<div class="filters">
+<input id="searchInput" type="search" placeholder="Search complaints">
+<select id="typeFilter"></select>
+<select id="statusFilter">
+<option value="">Status</option>
+<option>Pending</option>
+<option>Open</option>
+<option>Closed</option>
+</select>
+<select id="stageFilter">
+<option value="">Stage</option>
+<option>N/A</option>
+<option>Investigation</option>
+<option>Resolution</option>
+</select>
+</div>
+
+<div class="table-wrap">
+<table>
+<thead id="tableHead"></thead>
+<tbody id="tableBody"></tbody>
+</table>
+</div>
+<p id="emptyMessage" class="muted" hidden>No complaints found.</p>
+</section>
+
+<!-- ===== PAGE 2: file a complaint form ===== -->
+<section id="formPage" hidden>
+<div class="form-box">
+<!-- This header only shows when the form is a side panel (opened from Home) -->
+<div class="panel-header">
+<strong>File a complaint</strong>
+<button id="panelClose" class="link-button" aria-label="Close">✕</button>
+</div>
+<button id="backButton" class="link-button page-only">← Back</button>
+<h1 class="page-only">File a complaint</h1>
+<p class="muted page-only">Make a grievance about an employee or general working conditions</p>
+
+<!-- General or employee -->
+<div class="field">
+<p class="label">Is this a general complaint or is it about another employee? *</p>
+<div class="radio-group">
+<label><input type="radio" name="kind" value="general" checked> General complaint</label>
+<label><input type="radio" name="kind" value="employee"> An employee</label>
+</div>
+</div>
+
+<!-- Only for employee complaints -->
+<div class="field" id="field-about" hidden>
+<p class="label">Select employee you would like to make complaint about *</p>
+<button type="button" id="aboutButton" class="picker-button">Select employee</button>
+<p class="error">Please select an employee</p>
+</div>
+
+<div class="field" id="field-type">
+<label class="label" for="typeSelect" id="typeLabel">Select complaint type *</label>
+<select id="typeSelect"></select>
+<p class="error">This is a mandatory field. Please choose an option</p>
+</div>
+
+<div class="field" id="field-description">
+<label class="label" for="descInput" id="descLabel">Provide description of complaint in details *</label>
+<textarea id="descInput" placeholder="Description"></textarea>
+<p class="error">Please describe what happened</p>
+</div>
+
+<!-- Only for employee complaints -->
+<div id="employeeOnly" hidden>
+<div class="field">
+<p class="label">Frequency *</p>
+<p class="muted small">Is this a one-time or repeat behavior from the respondent?</p>
+<div class="radio-group">
+<label><input type="radio" name="frequency" value="one" checked> One time</label>
+<label><input type="radio" name="frequency" value="repeat"> Repeat behavior</label>
+</div>
+</div>
+
+<div class="field" id="field-times" hidden>
+<label class="label" for="timesInput">How many times has this incident occurred? *</label>
+<input id="timesInput" type="number" min="2" placeholder="Enter a number">
+<p class="error">Enter a number of 2 or more</p>
+</div>
+</div>
+
+<div class="field" id="field-date">
+<label class="label" for="dateInput" id="dateLabel">Incident date (if date related)</label>
+<input id="dateInput" type="date">
+<p class="error" id="dateError">Choose a date that is not in the future</p>
+</div>
+
+<!-- Only for employee complaints -->
+<div class="field" id="witnessField" hidden>
+<p class="label">Witnesses (optional)</p>
+<button type="button" id="witnessButton" class="picker-button">Select employees</button>
+<div id="witnessChips" class="chips"></div>
+</div>
+
+<div class="field">
+<p class="label" id="sendToLabel">Submit complaint to *</p>
+<p class="muted small">Who should be able to see this complaint?</p>
+<div class="radio-group">
+<label><input type="radio" name="sendTo" value="HR" checked> HR</label>
+<label><input type="radio" name="sendTo" value="Line manager"> Line manager</label>
+<label><input type="radio" name="sendTo" value="HR and line manager"> Both</label>
+</div>
+</div>
+
+<div class="field">
+<p class="label">Documents (optional)</p>
+<input id="fileInput" type="file" multiple>
+<p id="fileNames" class="muted small"></p>
+</div>
+
+<div class="button-row">
+<button id="cancelButton" class="btn secondary">Cancel</button>
+<button id="submitButton" class="btn primary">File complaint</button>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- ===== Side panel with complaint details ===== -->
+<div id="overlay" hidden></div>
+<aside id="drawer" hidden></aside>
+
+<!-- ===== Pop-up to pick employees ===== -->
+<dialog id="pickerDialog">
+<div class="dialog-header">
+<strong id="pickerTitle">Select employee</strong>
+<button id="pickerClose" class="link-button" aria-label="Close">✕</button>
+</div>
+<input id="pickerSearch" type="search" placeholder="Search employee">
+<div id="pickerList"></div>
+<button id="pickerConfirm" class="btn primary full">Select</button>
+</dialog>
+
+<div id="toast" hidden></div>
+
+<script src="script.js"></script>
+</body>
+</html>
